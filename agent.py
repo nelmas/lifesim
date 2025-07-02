@@ -11,3 +11,10 @@ class Agent:
         self.x = max(0, min(WORLD_SIZE - 1, self.x + dx))
         self.y = max(0, min(WORLD_SIZE - 1, self.y + dy))
         self.energy -= 1
+
+    def eat(self, grid):
+        if grid[self.x][self.y] == "food":
+            self.energy += 5
+            grid[self.x][self.y] = "."
+        else:
+            self.energy -= 1
