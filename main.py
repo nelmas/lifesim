@@ -18,6 +18,9 @@ def main():
     agent = Agent(10, 10, WORLD_SIZE)
 
     for _ in range(20):
+        if agent.energy <= 0:
+            print("Agent has run out of energy and cannot move.")
+            break
         agent.move()
         agent.eat(grid)
         print(f"Agent at ({agent.x}, {agent.y}), energy: {agent.energy}")
