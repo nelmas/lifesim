@@ -15,7 +15,7 @@ def spawn_food(grid, count=10):
 def main():
     grid = create_grid()
     spawn_food(grid, count=10)
-    agent = Agent(10, 10)
+    agent = Agent(10, 10, WORLD_SIZE)
 
     for _ in range(20):
         agent.move()
