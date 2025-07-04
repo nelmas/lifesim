@@ -12,6 +12,17 @@ def spawn_food(grid, count=10):
         y = random.randint(0, WORLD_SIZE - 1)
         grid[y][x] = "F"
 
+def print_grid(grid, agent):
+    for y in range(len(grid)):
+        row = ""
+        for x in range(len(grid[y])):
+            if agent.x == x and agent.y == y:
+                row += "A "  # Agenten
+            else:
+                row += grid[y][x] + " "
+        print(row)
+    print()  # Tom rad för tydlighet
+
 def main():
     grid = create_grid()
     spawn_food(grid, count=10)
@@ -21,8 +32,9 @@ def main():
         if agent.energy <= 0:
             print("Agent has run out of energy and cannot move.")
             break
-        agent.move()
+        agent.move(grid)
         agent.eat(grid)
+        print_grid(grid, agent)
         print(f"Agent at ({agent.x}, {agent.y}), energy: {agent.energy}")
 
 if __name__ == "__main__":
