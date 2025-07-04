@@ -32,7 +32,7 @@ def main():
         if agent.energy <= 0:
             print("Agent has run out of energy and cannot move.")
             break
-        agent.move()
+        agent.move(grid)
         agent.eat(grid)
         print_grid(grid, agent)
         print(f"Agent at ({agent.x}, {agent.y}), energy: {agent.energy}")
